@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Zepto">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Zepto|MUX:inst1|lpm_mux:$00001" CBX_FILE_NAME="mux_lmc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

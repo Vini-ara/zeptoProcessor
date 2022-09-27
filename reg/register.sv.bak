@@ -1,0 +1,22 @@
+module Register(
+input logic clk,
+	input logic rst,
+	input logic we,
+	input  logic [3:0] Addr_Ra, 
+	input logic [3:0] Addr_Rb, 
+	input logic [3:0] Addr_Rd,
+	input logic [15:0] Write_Data,
+	output logic [15:0] Saida_Ra, 
+	output logic [15:0] Saida_Rb
+);
+	logic [15:0] registers [15:0];
+	
+	always_ff @ (posedge clk) begin
+		if(rst) registers <= '{default:0};
+		else if(we) registers[Addr_Rd] <= Write_Data;	
+	end
+	
+	assign Saida_Ra = Addr_Ra == 4'b0 ? 16'b0 : registers[Addr_Ra];
+	assign Saida_Rb = Addr_Rb == 4'b0 ? 16'b0 : registers[Addr_Rb];
+
+endmodule
